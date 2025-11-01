@@ -3,48 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InnovateX Pro - Product Launch | Accessible Design</title>
-    <meta name="description" content="Discover InnovateX Pro - the next generation solution developed with WCAG AA accessibility compliance">
+    <title>TechGadget Pro - Product Launch | WCAG AA Compliant</title>
+    <meta name="description" content="Launching TechGadget Pro - developed with full WCAG AA accessibility compliance for University assignment">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Skip link for keyboard users -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <header role="banner">
         <nav aria-label="Main navigation">
             <ul>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#specifications">Specifications</a></li>
+                <li><a href="#contact">Pre-order</a></li>
             </ul>
         </nav>
     </header>
 
     <main id="main-content" role="main">
+        <!-- Hero Section -->
         <section aria-labelledby="hero-heading">
-            <h1 id="hero-heading">InnovateX Pro</h1>
-            <p>The future of productivity is here</p>
-            <button aria-describedby="cta-description">Get Started Today</button>
-            <p id="cta-description" class="visually-hidden">Begin your 30-day free trial of InnovateX Pro</p>
+            <h1 id="hero-heading">TechGadget Pro</h1>
+            <p class="tagline">The next generation of smart technology</p>
+            <img src="images/product-hero.jpg" alt="TechGadget Pro showing sleek design and interface" width="600" height="400">
+            <button aria-describedby="preorder-description">Pre-order Now</button>
+            <p id="preorder-description" class="visually-hidden">Secure your TechGadget Pro with early bird pricing</p>
         </section>
 
+        <!-- Features Section -->
         <section aria-labelledby="features-heading">
-            <h2 id="features-heading">Key Features</h2>
+            <h2 id="features-heading">Revolutionary Features</h2>
             <div class="features-grid">
                 <article>
-                    <h3>Smart Automation</h3>
-                    <p>Streamline your workflow with intelligent task automation</p>
+                    <h3>AI-Powered Assistant</h3>
+                    <p>Intelligent voice recognition with natural language processing</p>
                 </article>
                 <article>
-                    <h3>Advanced Analytics</h3>
-                    <p>Gain insights with comprehensive data visualization</p>
+                    <h3>Extended Battery Life</h3>
+                    <p>72-hour battery with fast charging capability</p>
+                </article>
+                <article>
+                    <h3>Seamless Connectivity</h3>
+                    <p>5G ready with multi-device synchronization</p>
                 </article>
             </div>
+        </section>
+
+        <!-- Pre-order Form Section -->
+        <section aria-labelledby="order-heading">
+            <h2 id="order-heading">Pre-order Your TechGadget Pro</h2>
+            <form aria-labelledby="order-heading">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" required aria-required="true">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                    <div class="help-text">We'll send your order confirmation to this address</div>
+                </div>
+                
+                <div class="form-group">
+                    <fieldset>
+                        <legend>Choose Your Model</legend>
+                        <input type="radio" id="model-standard" name="model" value="standard" checked>
+                        <label for="model-standard">Standard (64GB)</label>
+                        
+                        <input type="radio" id="model-pro" name="model" value="pro">
+                        <label for="model-pro">Pro (128GB)</label>
+                    </fieldset>
+                </div>
+                
+                <button type="submit">Complete Pre-order</button>
+            </form>
         </section>
     </main>
 
     <footer role="contentinfo">
-        <p>&copy; 2025 InnovateX. All rights reserved.</p>
+        <p>&copy; 2025 TechGadget. Committed to accessible design.</p>
+        <p>This site conforms to WCAG 2.1 Level AA standards.</p>
     </footer>
 
     <script src="js/script.js"></script>
