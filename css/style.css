@@ -1,0 +1,22 @@
+/* 5COM2002 Accessibility and Usability Assignment */
+/* Main stylesheet with WCAG AA compliance */
+
+:root {
+    --primary-color: #0056b3;
+    --text-color: #333333;
+    --background-color: #ffffff;
+}
+
+/* Focus styles for accessibility */
+:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
