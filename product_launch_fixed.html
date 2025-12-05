@@ -8,7 +8,7 @@
         :root {
             --brand-blue: #1e3a8a;
             --light-blue-text: #ffffff;
-            --contrast-red: #dc2626;
+            --contrast-red: #b91c1c; /* CHANGED: Darker red for better contrast */
             --dark-gray: #4b5563;
             --focus-outline: #1e40af;
         }
@@ -111,7 +111,7 @@
         }
 
         .sale-indicator {
-            color: var(--contrast-red);
+            color: var(--contrast-red); /* Now uses darker red #b91c1c */
             font-size: 1.5rem;
             font-weight: bold;
             background-color: #fee2e2;
@@ -453,21 +453,23 @@
                     </div>
 
                     <div class="form-group">
-                        <p class="form-label">Strap Material:</p>
-                        <div class="radio-group">
-                            <label class="radio-label">
-                                <input type="radio" name="strap" id="strap-silicone" value="silicone" checked>
-                                Silicone Sport
-                            </label>
-                            
-                            <label class="radio-label">
-                                <input type="radio" name="strap" id="strap-leather" value="leather">
-                                Leather Classic
-                            </label>
-                        </div>
+                        <fieldset>
+                            <legend class="form-label">Strap Material:</legend>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="strap" id="strap-silicone" value="silicone" checked>
+                                    Silicone Sport
+                                </label>
+                                
+                                <label class="radio-label">
+                                    <input type="radio" name="strap" id="strap-leather" value="leather">
+                                    Leather Classic
+                                </label>
+                            </div>
+                        </fieldset>
                     </div>
 
-                    <button class="cta-button" onclick="addToCart()" accesskey="b" tabindex="0">
+                    <button class="cta-button" onclick="addToCart()" tabindex="0">
                         Add to Cart
                     </button>
                     
