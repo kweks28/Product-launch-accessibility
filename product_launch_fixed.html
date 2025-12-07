@@ -8,9 +8,10 @@
         :root {
             --brand-blue: #1e3a8a;
             --light-blue-text: #ffffff;
-            --contrast-red: #991b1b; /* FIXED: Dark red #991b1b = 5.7:1 contrast */
+            --contrast-red: #991b1b;
             --dark-gray: #4b5563;
             --focus-outline: #1e40af;
+            --text-secondary: #4b5563; /* FIXED: Changed from #6b7280 to #4b5563 for better contrast */
         }
 
         :focus {
@@ -102,7 +103,7 @@
         }
         
         .search-input::placeholder {
-            color: #6b7280;
+            color: var(--text-secondary); /* FIXED: Better contrast */
             opacity: 1;
         }
 
@@ -111,7 +112,7 @@
         }
 
         .sale-indicator {
-            color: var(--contrast-red); /* Now uses #991b1b - 5.7:1 contrast */
+            color: var(--contrast-red);
             font-size: 1.5rem;
             font-weight: bold;
             background-color: #fee2e2;
@@ -292,6 +293,8 @@
             
             cartStatus.textContent = `Added ${quantity} Product X Ultra (${size}, ${strap ? strap.value : 'no strap selected'}, ${color}) to cart! Proceed to checkout.`;
             cartStatus.style.display = 'block';
+            cartStatus.setAttribute('role', 'status');
+            cartStatus.setAttribute('aria-live', 'polite');
             
             // Announce to screen readers
             const liveRegion = document.getElementById('live-region');
@@ -305,7 +308,11 @@
             console.log("Color switched to: " + colorName);
             document.getElementById('product-image').src = `https://placehold.co/400x400/1e3a8a/f0f0f0?text=Product+${colorName.toUpperCase()}`;
             document.getElementById('product-image').alt = `Product X Ultra Smartwatch in ${colorName} color`;
-            document.getElementById('current-color').textContent = colorName;
+            
+            const colorElement = document.getElementById('current-color');
+            colorElement.textContent = colorName;
+            colorElement.setAttribute('aria-live', 'polite');
+            colorElement.setAttribute('aria-atomic', 'true');
             
             // Update aria-label for color buttons
             const colorButtons = document.querySelectorAll('.color-option');
@@ -316,6 +323,7 @@
             
             element.classList.add('selected');
             element.setAttribute('aria-label', `Selected ${colorName} color`);
+            element.focus(); // Keep focus on selected button
             
             // Announce change to screen readers
             const liveRegion = document.getElementById('live-region');
@@ -487,7 +495,7 @@
                     <p style="font-size: 0.875rem; color: #4b5563; margin-top: 4px;">Check your metrics at a glance, day or night.</p>
                 </div>
                 <div class="feature-card">
-                    <img src="https://placehold.co/50x50/f97316/ffffff?text=H" alt="Health monitoring icon" style="float: right;">
+                    <img src="https://placehold.co/50x50/f97316/ffffff?text=H" alt="Orange health monitoring icon with H letter" style="float: right;">
                     <h3 style="font-size: 1.25rem; font-weight: 500; margin-top: 0;">Ultra Health Monitoring</h3>
                     <p style="font-size: 0.875rem; color: #4b5563; margin-top: 4px;">ECG, Sleep Tracking, and Blood Oxygen.</p>
                 </div>
@@ -497,7 +505,7 @@
                 </div>
             </div>
             
-            <p style="font-size: 0.875rem; margin-top: 2rem; color: #6b7280;" class="justified-text">
+            <p style="font-size: 0.875rem; margin-top: 2rem; color: #4b5563;" class="justified-text">
                 The Product X Smartwatch represents a major leap in wearable technology. We've redesigned the chip architecture for 50% better performance while maintaining its slim profile. This focus on efficiency ensures that your device keeps pace with your demanding schedule, offering reliability when you need it most.
             </p>
         </section>
@@ -569,7 +577,7 @@
                 <img src="https://placehold.co/400x100/1e3a8a/60a5fa?text=Limited+Time+Offer+-+Free+Shipping" alt="Limited time offer banner: Free shipping available on all orders" style="border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin-bottom: 1rem; width: 100%; height: auto;">
             </a>
             
-            <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 8px;">Watch a full product demonstration:</p>
+            <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 8px;">Watch a full product demonstration:</p>
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
                 <iframe width="100%" height="250" src="https://www.youtube.com/embed/S_T10uPq65g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="Product X Ultra Smartwatch unboxing and demonstration video"></iframe>
             </div>
@@ -578,7 +586,8 @@
         <div style="display: flex; justify-content: center; align-items: center; padding-top: 24px; padding-bottom: 24px; flex-wrap: wrap; gap: 1rem;">
             <button aria-label="Notification settings" style="background-color: #d1d5db; padding: 12px; border-radius: 9999px; border: none; cursor: pointer; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);" 
                 onmouseover="this.style.backgroundColor='#9ca3af'" onmouseout="this.style.backgroundColor='#d1d5db'">
-                <span style="color: var(--dark-gray);">🔔</span> 
+                <span aria-hidden="true" style="color: var(--dark-gray);">🔔</span>
+                <span class="sr-only">Notification settings</span>
             </button>
             
             <p style="font-size: 0.875rem; font-weight: 600;">
@@ -617,7 +626,7 @@
 
             <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 8px;">
                 <label class="radio-label" style="color: #e5e7eb;">
-                    <input type="checkbox" name="terms-agree" required>
+                    <input type="checkbox" id="terms-agree" name="terms-agree" required>
                     I agree to the Terms of Service.
                 </label>
             </div>
