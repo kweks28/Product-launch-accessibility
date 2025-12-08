@@ -1,10 +1,6 @@
 Product Launch Accessibility Fixes
 University Assignment: Web Accessibility & Usability
 
-![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-blue)
-![WCAG AA](https://img.shields.io/badge/WCAG-AA-green)
-![Accessibility](https://img.shields.io/badge/Accessibility-100%25-brightgreen)
-
 Project Overview
 University assignment to fix accessibility issues on a product launch page and achieve WCAG 2.1 AA compliance.
 
