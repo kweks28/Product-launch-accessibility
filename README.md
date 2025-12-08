@@ -9,7 +9,7 @@ Project Overview
 University assignment to fix accessibility issues on a product launch page and achieve WCAG 2.1 AA compliance.
 
 Live Demos
-- Original (Before): https://kweks28.github.io/Product-launch-accessibility/product_launch_original.html
+- Original (Before): https://kweks28.github.io/Product-launch-accessibility/product_launch.html
 - Fixed (After): https://kweks28.github.io/Product-launch-accessibility/product_launch_fixed.html
 
 Accessibility Improvements
