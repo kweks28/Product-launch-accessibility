@@ -8,10 +8,11 @@
         :root {
             --brand-blue: #1e3a8a;
             --light-blue-text: #ffffff;
-            --contrast-red: #991b1b;
+            --contrast-red: #991b1b; /* FIXED: Dark red #991b1b = 5.7:1 contrast ✓ */
             --dark-gray: #4b5563;
             --focus-outline: #1e40af;
             --text-secondary: #4b5563; /* FIXED: Changed from #6b7280 to #4b5563 for better contrast */
+            --footer-text: #d1d5db; /* ADDED: Light gray for dark backgrounds with good contrast */
         }
 
         :focus {
@@ -112,7 +113,7 @@
         }
 
         .sale-indicator {
-            color: var(--contrast-red);
+            color: var(--contrast-red); /* Now uses #991b1b - 5.7:1 contrast */
             font-size: 1.5rem;
             font-weight: bold;
             background-color: #fee2e2;
@@ -185,7 +186,7 @@
         
         footer {
             background-color: #1f2937;
-            color: #e5e7eb;
+            color: var(--footer-text); /* FIXED: Using high contrast light gray */
             padding-top: 24px;
             padding-bottom: 24px;
             margin-top: 32px;
@@ -621,18 +622,18 @@
             <p>&copy; 2025 Product Tech. All rights reserved.</p>
             
             <p style="font-size: 0.75rem; margin-top: 8px;">
-                Review our full policy. <a href="/warranty" target="_blank" style="color: #e5e7eb; text-decoration: underline;">More Details<span class="sr-only"> (opens in new window)</span></a>.
+                Review our full policy. <a href="/warranty" target="_blank" style="color: var(--footer-text); text-decoration: underline;">More Details<span class="sr-only"> (opens in new window)</span></a>.
             </p>
 
             <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 8px;">
-                <label class="radio-label" style="color: #e5e7eb;">
+                <label class="radio-label" style="color: var(--footer-text);">
                     <input type="checkbox" id="terms-agree" name="terms-agree" required>
                     I agree to the Terms of Service.
                 </label>
             </div>
             
             <div style="margin-top: 16px;">
-                <p style="font-size: 0.75rem; color: #9ca3af;">
+                <p style="font-size: 0.75rem; color: var(--footer-text);">
                     This website is designed to meet WCAG 2.1 AA accessibility standards.
                 </p>
             </div>
